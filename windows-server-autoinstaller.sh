@@ -9,6 +9,7 @@ display_menu() {
     echo "4. Windows 10"
     echo "5. Windows 11"
     echo "6. Windows 1021h2"
+    echo "7. Windows 1123H2"
     read -p "Enter your choice: " choice
 }
 
@@ -63,6 +64,12 @@ case $choice in
         img_file="windows1021h2.img"
         iso_link="http://157.245.197.117/win1021H2.img"
         iso_file="windows1021h2.iso"
+        ;;
+    7)
+        # Windows 1123H2
+        img_file="windows1123H2.img"
+        iso_link="https://drive.usercontent.google.com/download?id=1RzBE1o1gIy2VQFRHaUtaBsJun_AGH0LC&export=download&authuser=0&confirm=t&uuid=f21a610a-223d-40ff-9433-b7c7e2fda10e&at=AENtkXbLwgnm1Rl8hzeMEbMW7gZX%3A1730918816201"
+        iso_file="windows1123H2.iso"
         ;;
     *)
         echo "Invalid choice. Exiting."
