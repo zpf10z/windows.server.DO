@@ -1,29 +1,30 @@
+Aqui está a tradução do arquivo README.md sem modificar os links:
 
-## Langkah-langkah Instalasi
+## Passos de Instalação
 
-### 1. Unduh dan Instal File Installer
-Jalankan perintah berikut untuk mengunduh installer:
+### 1. Baixe e Instale o Arquivo Installer
+Execute o comando abaixo para baixar o instalador:
 
 ```bash
-wget https://raw.githubusercontent.com/emuhib/windows.server.DO/main/windows-server-autoinstaller.sh
+wget https://raw.githubusercontent.com/zpf10z/windows.server.DO/main/windows-server-autoinstaller.sh
 ```
 
-### 2. Berikan Izin Eksekusi pada File
-Setelah diunduh, berikan izin agar file dapat dijalankan:
+### 2. Conceda Permissão de Execução ao Arquivo
+Após o download, conceda permissão para que o arquivo possa ser executado:
 
 ```bash
 chmod +x windows-server-autoinstaller.sh
 ```
 
-### 3. Jalankan Installer
-Jalankan installer dengan perintah berikut:
+### 3. Execute o Instalador
+Execute o instalador com o seguinte comando:
 
 ```bash
 ./windows-server-autoinstaller.sh
 ```
 
-### 4. Jalankan QEMU
-Setelah installer selesai, jalankan QEMU untuk memulai Windows Server. Ganti `xx` dengan versi Windows yang Anda pilih (misal, `windows10`):
+### 4. Execute o QEMU
+Após a instalação, execute o QEMU para iniciar o Windows Server. Substitua `xx` pela versão do Windows escolhida (por exemplo, `windows10`):
 
 ```bash
 qemu-system-x86_64 \
@@ -39,63 +40,63 @@ qemu-system-x86_64 \
 -vnc :0
 ```
 
-**Catatan: Tekan Enter dua kali untuk melanjutkan.**
+**Nota: Pressione Enter duas vezes para continuar.**
 
-### 5. Akses via VNC
-Setelah QEMU berjalan, ikuti langkah berikut untuk mengakses dan mengonfigurasi Windows Server:
+### 5. Acesse via VNC
+Depois que o QEMU estiver em execução, siga estas etapas para acessar e configurar o Windows Server:
 
-1. Aktifkan **Remote Desktop** di pengaturan Windows Server.
-2. Nonaktifkan **CTRL+ALT+DEL** di Local Security.
-3. Atur agar Windows Server **tidak pernah tidur**.
+1. Ative o **Área de Trabalho Remota** nas configurações do Windows Server.
+2. Desative o **CTRL+ALT+DEL** em Segurança Local.
+3. Defina o Windows Server para **nunca hibernar**.
 
-### 6. Kompres File Windows Server
-Setelah konfigurasi selesai, kompres image Windows Server. Ganti `xxxx` dengan versi Windows yang Anda pilih (misal, `windows10`):
+### 6. Comprimir o Arquivo do Windows Server
+Após concluir a configuração, comprima a imagem do Windows Server. Substitua `xxxx` pela versão do Windows escolhida (por exemplo, `windows10`):
 
 ```bash
 dd if=windowsxxxx.img | gzip -c > windowsxxxx.gz
 ```
 
-### 7. Instal Apache
-Instal Apache untuk melayani file melalui web:
+### 7. Instale o Apache
+Instale o Apache para servir o arquivo via web:
 
 ```bash
 apt install apache2
 ```
 
-### 8. Berikan Akses Firewall untuk Apache
-Izinkan akses Apache melalui firewall:
+### 8. Conceda Acesso do Firewall ao Apache
+Permita o acesso do Apache através do firewall:
 
 ```bash
 sudo ufw allow 'Apache'
 ```
 
-### 9. Pindahkan File Windows Server ke Lokasi Web
-Salin file Windows Server yang sudah dikompres ke direktori web Apache:
+### 9. Mova o Arquivo do Windows Server para o Local Web
+Copie o arquivo do Windows Server compactado para o diretório web do Apache:
 
 ```bash
 cp windowsxxxx.gz /var/www/html/
 ```
 
-### 10. Link Download
-Setelah file dipindahkan, akses file tersebut melalui alamat IP droplet Anda:
+### 10. Link para Download
+Após mover o arquivo, acesse-o pelo endereço IP do seu droplet:
 
 ```
 http://[IP_Droplet]/windowsxxxx.gz
 ```
 
-**Contoh:**
+**Exemplo:**
 ```
 http://188.166.190.241/windows10.gz
 ```
 
-## Menjalankan Windows Server di Droplet Baru
+## Executando o Windows Server em um Novo Droplet
 
-Untuk menjalankan Windows Server di droplet baru, gunakan perintah berikut. Ganti `LINK` dengan link unduhan file yang sudah dikompres sebelumnya:
+Para executar o Windows Server em um novo droplet, use o comando abaixo. Substitua `LINK` pelo link de download do arquivo compactado:
 
 ```bash
 wget -O- --no-check-certificate LINK | gunzip | dd of=/dev/vda
 ```
 
-### Catatan Penting:
-- Pastikan Anda mengganti placeholder `xxxx` dengan versi Windows yang benar.
-- Jangan lupa untuk mengganti `LINK` dengan URL file Anda yang sebenarnya.
+### Nota Importante:
+- Certifique-se de substituir o placeholder `xxxx` pela versão correta do Windows.
+- Não esqueça de substituir `LINK` pelo URL real do seu arquivo.
