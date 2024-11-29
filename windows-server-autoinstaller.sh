@@ -6,10 +6,7 @@ display_menu() {
     echo "1. Windows Server 2016"
     echo "2. Windows Server 2019"
     echo "3. Windows Server 2022"
-    echo "4. Windows 10"
-    echo "5. Windows 11"
-    echo "6. Windows 1021h2"
-    echo "7. Windows 1123H2"
+    echo "4. Windows 10 ltsc"
     read -p "Enter your choice: " choice
 }
 
@@ -48,29 +45,12 @@ case $choice in
         iso_file="windows2022.iso"
         ;;
     4)
-        # Windows 10
-        img_file="windows10.img"
-        iso_link="http://157.245.197.117/WIN10.ISO"
-        iso_file="windows10.iso"
+        # Windows win10_ltsc
+        img_file="win10_ltsc.img"
+        iso_link="https://drive.usercontent.google.com/download?id=1-ADUkOIz42AZwE6v22T8G9Vz1HSz6YEN&export=download&authuser=0&confirm=t&uuid=9e095b3f-a73e-4f07-8fb4-1fa0ddee58c2&at=AENtkXaVY9RrWnU8XI4hixNKSC8-%3A1732872204046"
+        iso_file="win10_ltsc.iso"
         ;;
-    5)
-        # Windows 11
-        img_file="windows11.img"
-        iso_link="http://157.245.197.117/WIN11.ISO"
-        iso_file="windows11.iso"
-        ;;
-    6)
-        # Windows 1021h2
-        img_file="windows1021h2.img"
-        iso_link="http://157.245.197.117/win1021H2.img"
-        iso_file="windows1021h2.iso"
-        ;;
-    7)
-        # Windows 1123H2
-        img_file="windows1123H2.img"
-        iso_link="https://drive.usercontent.google.com/download?id=1RzBE1o1gIy2VQFRHaUtaBsJun_AGH0LC&export=download&authuser=0&confirm=t&uuid=f21a610a-223d-40ff-9433-b7c7e2fda10e&at=AENtkXbLwgnm1Rl8hzeMEbMW7gZX%3A1730918816201"
-        iso_file="windows1123H2.iso"
-        ;;
+       
     *)
         echo "Invalid choice. Exiting."
         exit 1
