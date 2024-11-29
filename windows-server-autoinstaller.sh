@@ -47,7 +47,7 @@ case $choice in
     4)
         # Windows win10_ltsc
         img_file="win10_ltsc.img"
-        iso_link="https://drive.usercontent.google.com/download?id=1-ADUkOIz42AZwE6v22T8G9Vz1HSz6YEN&export=download&authuser=0&confirm=t&uuid=9e095b3f-a73e-4f07-8fb4-1fa0ddee58c2&at=AENtkXaVY9RrWnU8XI4hixNKSC8-%3A1732872204046"
+        iso_link="https://drive.usercontent.google.com/download?id=1PcTTGKbRCJ4TmAnXLW_06h_DBPE6-fXZ&export=download&authuser=0&confirm=t&uuid=ff75dfd0-8498-435e-80a5-089c2e244746&at=AENtkXaneURzaWuOEDLA4e9hAKYD%3A1732878924328"
         iso_file="win10_ltsc.iso"
         ;;
        
